@@ -1,4 +1,6 @@
-bin/**
+*/bin/**
 *.class
-.metadata
+.metadata/.plugins
+.metadata/.lock
+.metadata/.log
 .project
