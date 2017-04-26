@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;moquette.conf&apos; to &apos;MQTTServer/src&apos;&#x0D;&#x0A;- Original project: &apos;MQTTServer&apos;&#x0D;&#x0A;- Destination element: &apos;MQTTServer/src&apos;&#x0D;&#x0A;- Original element: &apos;moquette.conf&apos;" description="Copy file" destination="/src" element1="src/moquette.conf" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1492764898487" units="0" version="1.0"/>
+</session>

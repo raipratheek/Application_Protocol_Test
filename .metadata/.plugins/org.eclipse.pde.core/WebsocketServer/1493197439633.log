@@ -1,0 +1,12 @@
+!SESSION 2017-04-26 11:03:59.258 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -dev file:C:/D/MasterThesis/eclipse_ws/serverOSGi/.metadata/.plugins/org.eclipse.pde.core/WebsocketServer/dev.properties -os win32 -ws win32 -arch x86 -consoleLog -console
+
+!ENTRY org.eclipse.equinox.ds 2 0 2017-04-26 11:04:32.859
+!MESSAGE [SCR - WorkThread] Timeout occurred! Thread was blocked on processing [QueuedJob] WorkPerformer: org.eclipse.equinox.internal.ds.SCRManager@1226ecc; actionType 1
+
+!ENTRY org.eclipse.equinox.ds 2 0 2017-04-26 11:04:32.999
+!MESSAGE [SCR] Enabling components of bundle com.rai.mt.websocket did not complete in 30000 ms 

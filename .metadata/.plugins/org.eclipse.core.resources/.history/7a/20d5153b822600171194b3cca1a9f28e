@@ -1,0 +1,68 @@
+package com.rai.mt.mqtt.server;
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.Properties;
+
+import io.moquette.server.config.ClasspathResourceLoader;
+import io.moquette.server.config.IConfig;
+import io.moquette.server.config.IResourceLoader;
+
+public class MQTTConfigProperties extends IConfig {
+
+	private Properties m_properties;
+
+	public MQTTConfigProperties() {
+		m_properties = new Properties();
+	}
+
+	@Override
+	public void setProperty(String name, String value) {
+		m_properties.put(name, value);
+	}
+
+	@Override
+	public String getProperty(String name) {
+		return m_properties.getProperty(name);
+	}
+
+	@Override
+	public String getProperty(String name, String defaultValue) {
+
+		String val = m_properties.getProperty(name);
+		if (val == null) {
+			return defaultValue;
+		}
+		return val;
+	}
+
+	@Override
+	public IResourceLoader getResourceLoader() {
+
+		return new ClasspathResourceLoader() ;
+	}
+	
+	
+	class MQTTResourceLoader implements IResourceLoader {
+
+		@Override
+	    public Reader loadDefaultResource() {
+	        return loadResource(defaultResource);
+	    }
+
+	    @Override
+	    public Reader loadResource(String relativePath) {
+	        LOG.info("Loading resource. RelativePath = {}.", relativePath);
+	        InputStream is = this.classLoader.getResourceAsStream(relativePath);
+	        return is != null ? new InputStreamReader(is) : null;
+	    }
+
+	    @Override
+	    public String getName() {
+	        return "classpath resource";
+	    }
+		
+	}
+
+}

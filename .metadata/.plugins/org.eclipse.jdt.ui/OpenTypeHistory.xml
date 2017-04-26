@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=ProtocolApi/src&lt;com.rai.mt.protocol{IAppProtocolClient.java[IAppProtocolClient" modifiers="513" timestamp="1492205393800"/>
+<typeInfo handle="=Websocket/src&lt;org.java_websocket.client{WebSocketClient.java[WebSocketClient" modifiers="1025" timestamp="1491209656000"/>
+<typeInfo handle="=MQTTServer/src&lt;com.rai.mt.mqtt.server{MQTTServerService.java[MQTTServerService" modifiers="1" timestamp="1492771623850"/>
+<typeInfo handle="=MQTTServer/src&lt;io.moquette.server.config{IConfig.java[IConfig" modifiers="1025" timestamp="1492282257072"/>
+<typeInfo handle="=MQTTServer/src&lt;io.moquette.server.netty{NettyMQTTHandler.java[NettyMQTTHandler" modifiers="1" timestamp="1492282266840"/>
+</typeInfoHistroy>

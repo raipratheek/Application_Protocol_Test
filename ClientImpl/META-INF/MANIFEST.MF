@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ClientImpl
+Bundle-SymbolicName: com.rai.mt.clientimpl
+Bundle-Version: 1.0.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.swt;bundle-version="3.105.3"
+Import-Package: com.rai.mt.protocol,
+ org.osgi.service.component.annotations;version="1.2.0"
+Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/com.rai.mt.clientimpl.ClientLauncher.xml

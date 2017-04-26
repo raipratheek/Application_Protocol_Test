@@ -1,0 +1,59 @@
+package com.rai.mt.mqtt.server;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import io.moquette.interception.AbstractInterceptHandler;
+import io.moquette.interception.InterceptHandler;
+import io.moquette.server.config.ClasspathResourceLoader;
+import io.moquette.server.config.IConfig;
+import io.moquette.server.config.IResourceLoader;
+import io.moquette.server.config.ResourceLoaderConfig;
+import io.moquette.server.netty.MessageBuilder;
+import io.netty.handler.codec.mqtt.MqttPublishMessage;
+import io.netty.handler.codec.mqtt.MqttQoS;
+
+public class MQTTEmbeddedBroker {
+
+	private io.moquette.server.Server mqttBroker;
+
+	public void startMqttServer(AbstractInterceptHandler pubListener, boolean secure) {
+
+		IResourceLoader classpathLoader = new ClasspathResourceLoader();
+		IConfig classPathConfig = null;
+		if (secure) {
+			classPathConfig = new ResourceLoaderConfig(classpathLoader, "moquette.conf");
+		} else {
+			classPathConfig = new ResourceLoaderConfig(classpathLoader, "moquetteunsecure.conf");
+		}
+
+		mqttBroker = new io.moquette.server.Server();
+		List<? extends InterceptHandler> userHandlers = Arrays.asList(pubListener);
+
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			@Override
+			public void run() {
+				System.out.println("Stopping broker");
+				mqttBroker.stopServer();
+				System.out.println("Broker stopped");
+			}
+		});
+		try {
+			mqttBroker.startServer(classPathConfig, userHandlers);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void sendResponse(String msg) {
+
+		MqttPublishMessage message = MessageBuilder.publish().topicName("Response").retained(true)
+				// qos(MqttQoS.AT_MOST_ONCE);
+				.qos(MqttQoS.AT_LEAST_ONCE)
+				// .qos(MqttQoS.EXACTLY_ONCE)
+				.payload(msg.getBytes()).build();
+		mqttBroker.internalPublish(message, "INTRLPUB");
+	}
+
+}
