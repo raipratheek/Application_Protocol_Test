@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring accessors="true" comment="Delete 3 elements from project &apos;MQTTClient&apos;&#x0D;&#x0A;- Original project: &apos;MQTTClient&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     build.properties&#x0D;&#x0A;     build.xml&#x0D;&#x0A;     pom.xml" description="Delete elements" element1="build.properties" element2="build.xml" element3="pom.xml" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="3" stamp="1492284761003" subPackages="false" version="1.0"/>
-</session>
